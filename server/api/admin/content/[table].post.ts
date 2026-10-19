@@ -3,6 +3,7 @@ export default defineEventHandler(async (event) => {
   const data = pickColumns(table, await readBody(event))
   try {
     const [row] = await useDb().insert(table).values(data as never).returning()
+    await purgeSiteCache()
     return row
   }
   catch (e) {

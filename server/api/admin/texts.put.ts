@@ -21,5 +21,6 @@ export default defineEventHandler(async (event) => {
     await db.insert(t).values({ locale, key, value })
       .onConflictDoUpdate({ target: [t.locale, t.key], set: { value } })
   }
+  await purgeSiteCache()
   return { ok: true }
 })

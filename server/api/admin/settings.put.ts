@@ -7,5 +7,6 @@ export default defineEventHandler(async (event) => {
     await db.insert(tables.settings).values({ key, value })
       .onConflictDoUpdate({ target: tables.settings.key, set: { value } })
   }
+  await purgeSiteCache()
   return { ok: true }
 })

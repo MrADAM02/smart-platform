@@ -12,5 +12,6 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: (e as Error).message })
   }
   if (!row) throw createError({ statusCode: 404, statusMessage: 'Not found' })
+  await purgeSiteCache()
   return row
 })

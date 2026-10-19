@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.18.0",
+    "@netlify/functions": "^6.0.2",
     "@nuxt/fonts": "^1.0.1",
     "@nuxt/icon": "^2.5.1",
     "@nuxtjs/i18n": "^10.6.0",

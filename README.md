@@ -74,6 +74,13 @@ Netlify functions cannot write to local files, so production uses **Turso**, a h
    - `NUXT_ADMIN_PASSWORD_HASH`
 5. Deploy. Then update `site.url` and `i18n.baseUrl` in `nuxt.config.ts` to your real domain, for sitemap and hreflang.
 
+## Caching
+
+Public pages and `/api/public/*` are cached on Netlify's CDN (`routeRules` in `nuxt.config.ts`, tag `site`).
+The cache is cleared automatically on every deploy, and on every admin change through `purgeSiteCache()` (`server/utils/cache.ts`), so edits appear immediately.
+Admin pages, admin APIs, the form endpoint and the session endpoint are never cached. The admin session is only loaded inside `/admin`, so it can never end up in cached HTML.
+If you add a new admin endpoint that changes public content, call `await purgeSiteCache()` after the write.
+
 ## Before going live
 
 - Replace the placeholder phone, email, WhatsApp and address in **/admin → Settings**.
