@@ -1,0 +1,11 @@
+node_modules
+.nuxt
+.output
+.data
+.netlify
+dist
+data/*.sqlite*
+.env
+.env.*
+!.env.example
+*.log

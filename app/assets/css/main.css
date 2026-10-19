@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand palette — change these to re-theme the whole site */
+  --color-brand-50: #eefbf8;
+  --color-brand-100: #d5f4ec;
+  --color-brand-200: #aee8da;
+  --color-brand-300: #7ad5c2;
+  --color-brand-400: #45bba5;
+  --color-brand-500: #23a08b;
+  --color-brand-600: #168170;
+  --color-brand-700: #14675b;
+  --color-brand-800: #14534a;
+  --color-brand-900: #13453e;
+  --color-brand-950: #052824;
+
+  --color-accent-400: #fbbf4d;
+  --color-accent-500: #f5a524;
+  --color-accent-600: #d98710;
+
+  --color-ink-900: #0b1f2a;
+  --color-ink-800: #12303f;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-slate-700 antialiased; }
+  h1, h2, h3, h4 { @apply text-ink-900 font-bold; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand-500; }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+@utility section {
+  @apply py-16 sm:py-24;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition disabled:opacity-60;
+}
+@utility btn-primary {
+  @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700;
+}
+@utility btn-accent {
+  @apply btn bg-accent-500 text-ink-900 hover:bg-accent-400;
+}
+@utility btn-outline {
+  @apply btn border border-brand-600 text-brand-700 hover:bg-brand-50;
+}
+@utility btn-ghost-light {
+  @apply btn border border-white/30 text-white hover:bg-white/10;
+}
+@utility card {
+  @apply rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
+}
+@utility input {
+  @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-ink-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-medium text-ink-800;
+}
+@utility eyebrow {
+  @apply mb-3 inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold tracking-wide text-brand-700;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(circle at 20% 20%, var(--color-brand-500), transparent 45%),
+    radial-gradient(circle at 80% 80%, var(--color-brand-700), transparent 40%);
+}
+
+/* Flip directional icons (arrows/chevrons) in RTL */
+[dir="rtl"] .flip-rtl { transform: scaleX(-1); }
+
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,141 @@
+{
+  "brand": { "name": "Smart Platform", "latin": "المنصة الذكية", "tagline": "Integrated solutions for documents, assets, knowledge and facilities" },
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "quote": "Request a quote",
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "allProducts": "All products"
+  },
+  "hero": {
+    "since": "Serving organizations since {year}",
+    "titleStart": "One platform to manage",
+    "words": ["documents", "assets", "knowledge", "facilities"],
+    "text": "We combine field services with smart systems to help organizations organize their information and assets and run their operations efficiently and in compliance.",
+    "ctaDemo": "Request a demo",
+    "ctaSolutions": "Explore solutions",
+    "compliance": ["Aligned with national records regulations", "Personal data protection", "Cybersecurity controls"]
+  },
+  "solutions": {
+    "eyebrow": "Our solutions",
+    "title": "Connected services, from paper to intelligence",
+    "text": "Each service leads into the next: we organize documents, digitize them, then make them searchable and analyzable.",
+    "details": "Details",
+    "smart": "Smart feature"
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "A technology partner that understands local organizations",
+    "text": "Smart Platform is a Saudi company delivering integrated solutions in document management, archiving, assets and facilities, with a team that blends field and technical expertise.",
+    "points": ["Compliance-driven methodology", "In-house products", "Ongoing support after delivery"],
+    "years": "Years of experience",
+    "more": "Learn more about us",
+    "missionTitle": "Our mission",
+    "mission": "Enable organizations to manage their information and assets intelligently, through practical solutions with measurable impact.",
+    "visionTitle": "Our vision",
+    "vision": "To be the region's first choice for digital transformation of records and facilities.",
+    "valuesTitle": "Our values",
+    "values": ["Integrity", "Quality", "Innovation", "On-time delivery"]
+  },
+  "why": {
+    "eyebrow": "Why us",
+    "title": "What sets us apart",
+    "items": [
+      { "title": "Documented compliance", "text": "Every project is delivered with documentation proving alignment with local regulations." },
+      { "title": "Our own products", "text": "We build our systems ourselves, so we respond to your needs quickly and flexibly." },
+      { "title": "Field teams", "text": "Trained teams ready to work at your sites across the Kingdom." }
+    ]
+  },
+  "products": {
+    "eyebrow": "Our products",
+    "title": "Ready-to-run systems",
+    "details": "Product details",
+    "demo": "Request a trial",
+    "all": "View all products",
+    "features": "Key features",
+    "requestTitle": "Request a product trial",
+    "requestText": "Choose a product, leave your details and we will arrange a demo."
+  },
+  "method": { "eyebrow": "Our methodology", "title": "Four clear steps from idea to operation" },
+  "sectors": { "eyebrow": "Sectors", "title": "Serving diverse sectors" },
+  "faq": { "eyebrow": "FAQ", "title": "Quick answers" },
+  "cta": {
+    "title": "Start with a free needs assessment",
+    "text": "Send your request today and we will get back to you with a quote within one business day.",
+    "quote": "Request a quote",
+    "whatsapp": "Chat on WhatsApp",
+    "whatsappMessage": "Hello, I would like to ask about your services"
+  },
+  "footer": {
+    "about": "Integrated solutions for document management, archiving, assets, knowledge and facilities, with local expertise and in-house products.",
+    "company": "Company",
+    "contact": "Contact",
+    "hours": "Working hours",
+    "privacy": "Privacy policy",
+    "compliance": "Compliance",
+    "rights": "All rights reserved"
+  },
+  "form": {
+    "contactTitle": "Contact us",
+    "contactText": "We are happy to answer your questions. Fill in the form and we will be in touch shortly.",
+    "quoteTitle": "Request a quote",
+    "demoTitle": "Request a demo",
+    "type": "Request type",
+    "types": { "contact": "General inquiry", "quote": "Quote", "demo": "Demo", "product": "Product trial" },
+    "name": "Full name",
+    "company": "Organization / company",
+    "email": "Email",
+    "phone": "Mobile number",
+    "product": "Product",
+    "message": "Request details",
+    "submit": "Send request",
+    "sending": "Sending...",
+    "success": "Your request has been received. We will contact you soon.",
+    "error": "Could not send your request. Please check your details and try again.",
+    "info": "Contact information",
+    "address": "Address",
+    "map": "View on map"
+  },
+  "pages": {
+    "notFound": "Page not found",
+    "backHome": "Back to home",
+    "privacyTitle": "Privacy policy",
+    "complianceTitle": "Compliance & governance",
+    "solutionCta": "Need this service?",
+    "otherSolutions": "Other solutions"
+  },
+  "admin": {
+    "title": "Admin panel",
+    "login": "Sign in",
+    "password": "Password",
+    "logout": "Sign out",
+    "invalid": "Incorrect password",
+    "dashboard": "Dashboard",
+    "requests": "Requests",
+    "services": "Solutions",
+    "products": "Products",
+    "faqs": "FAQ",
+    "stats": "Stats",
+    "sectors": "Sectors",
+    "steps": "Methodology",
+    "settings": "Settings",
+    "viewSite": "View site",
+    "total": "Total",
+    "status": { "new": "New", "in_progress": "In progress", "done": "Done" },
+    "all": "All",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "saved": "Saved",
+    "confirmDelete": "Are you sure you want to delete this?",
+    "empty": "No data",
+    "date": "Date",
+    "actions": "Actions"
+  }
+}
