@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   vite: { plugins: [tailwindcss()] },
 
   site: {
-    url: 'https://smart-platform.netlify.app',
+    url: 'https://smartplat.netlify.app',
     name: 'المنصة الذكية - SMART PLATFORM',
   },
 
@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   i18n: {
     defaultLocale: 'ar',
     strategy: 'prefix_except_default',
-    baseUrl: 'https://smart-platform.netlify.app',
+    baseUrl: 'https://smartplat.netlify.app',
     locales: [
       { code: 'ar', language: 'ar-SA', dir: 'rtl', name: 'العربية', file: 'ar.json' },
       { code: 'en', language: 'en-US', dir: 'ltr', name: 'English', file: 'en.json' },
