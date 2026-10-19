@@ -13,6 +13,7 @@ useSeoMeta({
 <template>
   <div>
     <HomeHeroSection />
+    <HomeTrustStrip />
     <HomeSolutionsSection />
     <HomeAboutTeaser />
     <HomeWhyUs />

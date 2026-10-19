@@ -14,6 +14,7 @@ const nav = [
   { to: '/admin/content/stats', key: 'admin.stats', icon: 'lucide:chart-column' },
   { to: '/admin/content/sectors', key: 'admin.sectors', icon: 'lucide:building' },
   { to: '/admin/content/steps', key: 'admin.steps', icon: 'lucide:list-ordered' },
+  { to: '/admin/texts', key: 'admin.texts', icon: 'lucide:languages' },
   { to: '/admin/settings', key: 'admin.settings', icon: 'lucide:settings' },
 ]
 

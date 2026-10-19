@@ -7,7 +7,8 @@ const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="bg-ink-900 text-slate-300">
+  <footer class="relative bg-ink-950 text-slate-400">
+    <div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-brand-500/60 to-transparent" />
     <div class="container-x grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
       <div>
         <UiBrandLogo light />

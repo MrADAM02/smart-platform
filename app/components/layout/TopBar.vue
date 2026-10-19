@@ -6,7 +6,7 @@ const { setting } = useLocalized()
 </script>
 
 <template>
-  <div class="hidden bg-ink-900 text-xs text-slate-300 md:block">
+  <div class="hidden bg-ink-950 text-xs text-slate-400 md:block">
     <div class="container-x flex h-10 items-center justify-between">
       <div class="flex items-center gap-6">
         <a v-if="s.phone" :href="telHref(s.phone)" class="flex items-center gap-1.5 hover:text-white">

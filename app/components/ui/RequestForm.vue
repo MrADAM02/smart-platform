@@ -19,7 +19,7 @@ const form = reactive({
 watch(() => props.type, v => v && (form.type = v))
 watch(() => props.product, v => v && (form.product = v))
 
-const state = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
+const state = ref<'idle' | 'sending' | 'success' | 'error' | 'limited'>('idle')
 
 async function submit() {
   state.value = 'sending'
@@ -31,8 +31,8 @@ async function submit() {
     state.value = 'success'
     Object.assign(form, { name: '', company: '', email: '', phone: '', message: '' })
   }
-  catch {
-    state.value = 'error'
+  catch (e) {
+    state.value = (e as { statusCode?: number }).statusCode === 429 ? 'limited' : 'error'
   }
 }
 </script>
@@ -88,6 +88,9 @@ async function submit() {
       </p>
       <p v-if="state === 'error'" role="alert" class="mt-4 flex items-center gap-2 rounded-xl bg-red-50 p-4 text-red-700">
         <Icon name="lucide:circle-alert" class="size-5" />{{ $t('form.error') }}
+      </p>
+      <p v-if="state === 'limited'" role="alert" class="mt-4 flex items-center gap-2 rounded-xl bg-amber-50 p-4 text-amber-800">
+        <Icon name="lucide:timer" class="size-5" />{{ $t('form.tooMany') }}
       </p>
     </div>
   </form>

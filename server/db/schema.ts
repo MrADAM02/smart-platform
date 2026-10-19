@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core'
+import { sqliteTable, text, integer, primaryKey } from 'drizzle-orm/sqlite-core'
 import { sql } from 'drizzle-orm'
 
 export const services = sqliteTable('services', {
@@ -44,6 +44,7 @@ export const faqs = sqliteTable('faqs', {
 
 export const stats = sqliteTable('stats', {
   id: integer('id').primaryKey({ autoIncrement: true }),
+  icon: text('icon').notNull().default('lucide:trending-up'),
   value: integer('value').notNull(),
   suffix: text('suffix').notNull().default('+'),
   labelAr: text('label_ar').notNull(),
@@ -85,6 +86,20 @@ export const requests = sqliteTable('requests', {
   locale: text('locale').notNull().default('ar'),
   status: text('status', { enum: ['new', 'in_progress', 'done'] }).notNull().default('new'),
   createdAt: text('created_at').notNull().default(sql`(CURRENT_TIMESTAMP)`),
+})
+
+/** Admin overrides of UI text from i18n/locales/*.json (key = dotted path, e.g. "hero.text") */
+export const pageTexts = sqliteTable('page_texts', {
+  locale: text('locale', { enum: ['ar', 'en'] }).notNull(),
+  key: text('key').notNull(),
+  value: text('value').notNull(),
+}, t => [primaryKey({ columns: [t.locale, t.key] })])
+
+/** Fixed-window counters shared by all serverless instances */
+export const rateLimits = sqliteTable('rate_limits', {
+  key: text('key').primaryKey(),
+  count: integer('count').notNull(),
+  resetAt: integer('reset_at').notNull(),
 })
 
 export type Service = typeof services.$inferSelect

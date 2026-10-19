@@ -13,6 +13,9 @@ const bodySchema = z.object({
 })
 
 export default defineEventHandler(async (event) => {
+  // 5 submissions per 10 minutes per IP
+  await rateLimit(event, { name: 'form', limit: 5, windowSec: 10 * 60 })
+
   const body = await readValidatedBody(event, bodySchema.safeParse)
   if (!body.success) {
     throw createError({ statusCode: 422, statusMessage: 'Invalid form data', data: z.treeifyError(body.error) })

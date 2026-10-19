@@ -1,59 +1,88 @@
+<script setup lang="ts">
+// A product-style dashboard mockup built in HTML/CSS (no external images)
+const { locale } = useI18n()
+const ar = computed(() => locale.value === 'ar')
+const bars = [42, 64, 52, 78, 58, 88, 70, 94, 66, 82, 74, 96]
+const docs = computed(() => ar.value
+  ? [['عقد توريد 2026', 'معتمد'], ['محضر اجتماع اللجنة', 'قيد المراجعة'], ['سجل الأصول - المبنى ب', 'معتمد']]
+  : [['Supply contract 2026', 'Approved'], ['Committee minutes', 'In review'], ['Asset register — Bldg B', 'Approved']])
+const nav = ['lucide:layout-dashboard', 'lucide:folder-open', 'lucide:barcode', 'lucide:building-2', 'lucide:settings']
+</script>
+
 <template>
-  <!-- Original illustration: a cloud hub connecting documents, assets, knowledge and facilities -->
-  <svg viewBox="0 0 480 400" role="img" aria-hidden="true">
-    <defs>
-      <linearGradient id="hg-card" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#ffffff" />
-        <stop offset="1" stop-color="#eefbf8" />
-      </linearGradient>
-      <linearGradient id="hg-core" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#23a08b" />
-        <stop offset="1" stop-color="#14534a" />
-      </linearGradient>
-    </defs>
+  <div class="relative" aria-hidden="true">
+    <!-- glow -->
+    <div class="absolute -inset-8 rounded-[3rem] bg-brand-500/20 blur-3xl" />
 
-    <g stroke="#aee8da" stroke-width="2" stroke-dasharray="6 6" fill="none">
-      <path d="M240 200 L110 90" /><path d="M240 200 L370 90" />
-      <path d="M240 200 L110 310" /><path d="M240 200 L370 310" />
-    </g>
+    <!-- window -->
+    <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-ink-800/80 shadow-2xl shadow-black/40 ring-1 ring-white/5 backdrop-blur">
+      <div class="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
+        <span class="size-2.5 rounded-full bg-red-400/80" />
+        <span class="size-2.5 rounded-full bg-amber-400/80" />
+        <span class="size-2.5 rounded-full bg-emerald-400/80" />
+        <span class="ms-3 h-5 flex-1 rounded-md bg-white/5" />
+      </div>
 
-    <circle cx="240" cy="200" r="78" fill="url(#hg-core)" />
-    <path d="M205 214a24 24 0 0 1 4-47 32 32 0 0 1 61 6 20 20 0 0 1 3 40z" fill="#ffffff" />
-    <circle cx="282" cy="160" r="9" fill="#f5a524" />
+      <div class="flex">
+        <div class="hidden flex-col gap-3 border-e border-white/10 p-3 sm:flex">
+          <span v-for="(n, i) in nav" :key="n" class="flex size-9 items-center justify-center rounded-lg" :class="i === 0 ? 'bg-brand-500 text-white' : 'text-slate-400'">
+            <Icon :name="n" class="size-4" />
+          </span>
+        </div>
 
-    <g>
-      <rect x="40" y="40" width="140" height="96" rx="18" fill="url(#hg-card)" stroke="#d5f4ec" />
-      <rect x="62" y="62" width="34" height="42" rx="5" fill="#45bba5" />
-      <rect x="106" y="66" width="56" height="7" rx="3.5" fill="#14675b" />
-      <rect x="106" y="80" width="40" height="7" rx="3.5" fill="#aee8da" />
-      <rect x="106" y="94" width="48" height="7" rx="3.5" fill="#aee8da" />
-    </g>
-    <g>
-      <rect x="300" y="40" width="140" height="96" rx="18" fill="url(#hg-card)" stroke="#d5f4ec" />
-      <g fill="#14675b">
-        <rect x="324" y="64" width="4" height="44" /><rect x="332" y="64" width="2" height="44" />
-        <rect x="338" y="64" width="6" height="44" /><rect x="348" y="64" width="2" height="44" />
-        <rect x="354" y="64" width="4" height="44" /><rect x="362" y="64" width="2" height="44" />
-        <rect x="368" y="64" width="6" height="44" /><rect x="378" y="64" width="3" height="44" />
-      </g>
-      <circle cx="408" cy="86" r="14" fill="#f5a524" opacity=".85" />
-    </g>
-    <g>
-      <rect x="40" y="264" width="140" height="96" rx="18" fill="url(#hg-card)" stroke="#d5f4ec" />
-      <circle cx="80" cy="312" r="18" fill="none" stroke="#23a08b" stroke-width="5" />
-      <circle cx="80" cy="312" r="6" fill="#23a08b" />
-      <rect x="110" y="298" width="50" height="7" rx="3.5" fill="#14675b" />
-      <rect x="110" y="312" width="38" height="7" rx="3.5" fill="#aee8da" />
-    </g>
-    <g>
-      <rect x="300" y="264" width="140" height="96" rx="18" fill="url(#hg-card)" stroke="#d5f4ec" />
-      <rect x="324" y="288" width="40" height="52" rx="4" fill="#45bba5" />
-      <g fill="#ffffff">
-        <rect x="332" y="296" width="8" height="8" /><rect x="348" y="296" width="8" height="8" />
-        <rect x="332" y="312" width="8" height="8" /><rect x="348" y="312" width="8" height="8" />
-      </g>
-      <rect x="376" y="300" width="44" height="7" rx="3.5" fill="#14675b" />
-      <rect x="376" y="314" width="30" height="7" rx="3.5" fill="#aee8da" />
-    </g>
-  </svg>
+        <div class="flex-1 space-y-3 p-4">
+          <div class="grid grid-cols-3 gap-3">
+            <div v-for="(k, i) in [['12.4K', 'lucide:files'], ['1,208', 'lucide:barcode'], ['98%', 'lucide:gauge']]" :key="i" class="rounded-xl border border-white/5 bg-white/5 p-3">
+              <Icon :name="k[1]!" class="size-4 text-brand-300" />
+              <p class="mt-2 text-lg font-bold text-white" dir="ltr">{{ k[0] }}</p>
+              <span class="mt-1 block h-1.5 w-12 rounded-full bg-white/10" />
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-white/5 bg-white/5 p-3">
+            <div class="mb-3 flex items-center justify-between">
+              <span class="h-2 w-20 rounded-full bg-white/20" />
+              <span class="h-2 w-10 rounded-full bg-brand-400/50" />
+            </div>
+            <div class="flex h-24 items-end gap-1.5" dir="ltr">
+              <span
+                v-for="(b, i) in bars"
+                :key="i"
+                class="flex-1 rounded-t-sm bg-gradient-to-t from-brand-600 to-brand-300"
+                :style="{ height: `${b}%`, opacity: 0.45 + i / 22 }"
+              />
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div v-for="d in docs" :key="d[0]" class="flex items-center gap-3 rounded-lg bg-white/5 px-3 py-2">
+              <Icon name="lucide:file-text" class="size-4 shrink-0 text-brand-300" />
+              <span class="flex-1 truncate text-xs text-slate-200">{{ d[0] }}</span>
+              <span class="rounded-full px-2 py-0.5 text-[10px] font-medium" :class="d[1] === 'معتمد' || d[1] === 'Approved' ? 'bg-brand-500/20 text-brand-300' : 'bg-accent-500/20 text-accent-300'">{{ d[1] }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- floating cards -->
+    <div class="animate-float absolute -bottom-6 -start-6 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-xl sm:block">
+      <div class="flex items-center gap-3">
+        <span class="flex size-10 items-center justify-center rounded-xl bg-brand-50 text-brand-600"><Icon name="lucide:scan-text" class="size-5" /></span>
+        <div>
+          <p class="text-sm font-bold text-ink-900">OCR</p>
+          <p class="text-xs text-slate-500">{{ ar ? 'تعرّف ذكي على النص العربي' : 'Smart Arabic recognition' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="animate-float-slow absolute -end-4 -top-6 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-xl sm:block">
+      <div class="flex items-center gap-3">
+        <span class="relative flex size-3">
+          <span class="animate-pulse-ring absolute inline-flex size-full rounded-full bg-brand-500" />
+          <span class="relative inline-flex size-3 rounded-full bg-brand-500" />
+        </span>
+        <p class="text-xs font-semibold text-ink-900">{{ ar ? 'مزامنة آمنة مستمرة' : 'Secure live sync' }}</p>
+      </div>
+    </div>
+  </div>
 </template>

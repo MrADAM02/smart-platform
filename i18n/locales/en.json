@@ -1,5 +1,9 @@
 {
-  "brand": { "name": "Smart Platform", "latin": "المنصة الذكية", "tagline": "Integrated solutions for documents, assets, knowledge and facilities" },
+  "brand": {
+    "name": "Smart Platform",
+    "latin": "المنصة الذكية",
+    "tagline": "Integrated solutions for documents, assets, knowledge and facilities"
+  },
   "nav": {
     "home": "Home",
     "solutions": "Solutions",
@@ -14,11 +18,35 @@
   "hero": {
     "since": "Serving organizations since {year}",
     "titleStart": "One platform to manage",
-    "words": ["documents", "assets", "knowledge", "facilities"],
+    "words": [
+      "documents",
+      "assets",
+      "knowledge",
+      "facilities"
+    ],
     "text": "We combine field services with smart systems to help organizations organize their information and assets and run their operations efficiently and in compliance.",
     "ctaDemo": "Request a demo",
     "ctaSolutions": "Explore solutions",
-    "compliance": ["Aligned with national records regulations", "Personal data protection", "Cybersecurity controls"]
+    "compliance": [
+      "Aligned with national records regulations",
+      "Personal data protection",
+      "Cybersecurity controls"
+    ]
+  },
+  "trust": {
+    "title": "Capabilities built into every solution",
+    "items": [
+      "Arabic OCR",
+      "Role-based access",
+      "Full audit trail",
+      "Cloud or on-premise",
+      "Hijri & Gregorian calendars",
+      "API integrations",
+      "Automatic backups",
+      "Data encryption",
+      "Mobile apps",
+      "Reports & dashboards"
+    ]
   },
   "solutions": {
     "eyebrow": "Our solutions",
@@ -31,7 +59,11 @@
     "eyebrow": "About us",
     "title": "A technology partner that understands local organizations",
     "text": "Smart Platform is a Saudi company delivering integrated solutions in document management, archiving, assets and facilities, with a team that blends field and technical expertise.",
-    "points": ["Compliance-driven methodology", "In-house products", "Ongoing support after delivery"],
+    "points": [
+      "Compliance-driven methodology",
+      "In-house products",
+      "Ongoing support after delivery"
+    ],
     "years": "Years of experience",
     "more": "Learn more about us",
     "missionTitle": "Our mission",
@@ -39,16 +71,34 @@
     "visionTitle": "Our vision",
     "vision": "To be the region's first choice for digital transformation of records and facilities.",
     "valuesTitle": "Our values",
-    "values": ["Integrity", "Quality", "Innovation", "On-time delivery"]
+    "values": [
+      "Integrity",
+      "Quality",
+      "Innovation",
+      "On-time delivery"
+    ]
   },
   "why": {
     "eyebrow": "Why us",
     "title": "What sets us apart",
     "items": [
-      { "title": "Documented compliance", "text": "Every project is delivered with documentation proving alignment with local regulations." },
-      { "title": "Our own products", "text": "We build our systems ourselves, so we respond to your needs quickly and flexibly." },
-      { "title": "Field teams", "text": "Trained teams ready to work at your sites across the Kingdom." }
+      {
+        "title": "Documented compliance",
+        "text": "Every project is delivered with documentation proving alignment with local regulations."
+      },
+      {
+        "title": "Our own products",
+        "text": "We build our systems ourselves, so we respond to your needs quickly and flexibly."
+      },
+      {
+        "title": "Field teams",
+        "text": "Trained teams ready to work at your sites across the Kingdom."
+      }
     ]
+  },
+  "stats": {
+    "eyebrow": "By the numbers",
+    "title": "Impact we are proud of"
   },
   "products": {
     "eyebrow": "Our products",
@@ -60,9 +110,18 @@
     "requestTitle": "Request a product trial",
     "requestText": "Choose a product, leave your details and we will arrange a demo."
   },
-  "method": { "eyebrow": "Our methodology", "title": "Four clear steps from idea to operation" },
-  "sectors": { "eyebrow": "Sectors", "title": "Serving diverse sectors" },
-  "faq": { "eyebrow": "FAQ", "title": "Quick answers" },
+  "method": {
+    "eyebrow": "Our methodology",
+    "title": "Four clear steps from idea to operation"
+  },
+  "sectors": {
+    "eyebrow": "Sectors",
+    "title": "Serving diverse sectors"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Quick answers"
+  },
   "cta": {
     "title": "Start with a free needs assessment",
     "text": "Send your request today and we will get back to you with a quote within one business day.",
@@ -85,7 +144,12 @@
     "quoteTitle": "Request a quote",
     "demoTitle": "Request a demo",
     "type": "Request type",
-    "types": { "contact": "General inquiry", "quote": "Quote", "demo": "Demo", "product": "Product trial" },
+    "types": {
+      "contact": "General inquiry",
+      "quote": "Quote",
+      "demo": "Demo",
+      "product": "Product trial"
+    },
     "name": "Full name",
     "company": "Organization / company",
     "email": "Email",
@@ -98,7 +162,8 @@
     "error": "Could not send your request. Please check your details and try again.",
     "info": "Contact information",
     "address": "Address",
-    "map": "View on map"
+    "map": "View on map",
+    "tooMany": "You have sent several requests in a short time. Please try again later."
   },
   "pages": {
     "notFound": "Page not found",
@@ -125,7 +190,11 @@
     "settings": "Settings",
     "viewSite": "View site",
     "total": "Total",
-    "status": { "new": "New", "in_progress": "In progress", "done": "Done" },
+    "status": {
+      "new": "New",
+      "in_progress": "In progress",
+      "done": "Done"
+    },
     "all": "All",
     "add": "Add",
     "edit": "Edit",
@@ -136,6 +205,13 @@
     "confirmDelete": "Are you sure you want to delete this?",
     "empty": "No data",
     "date": "Date",
-    "actions": "Actions"
+    "actions": "Actions",
+    "texts": "Site texts",
+    "textsHelp": "Edit any fixed text on the site. Reset a field to go back to the original text.",
+    "search": "Search texts...",
+    "edited": "Edited",
+    "reset": "Reset to default",
+    "default": "Default",
+    "tooMany": "Too many attempts. Try again in {minutes} minutes"
   }
 }

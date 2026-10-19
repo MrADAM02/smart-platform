@@ -18,8 +18,14 @@ async function login() {
     await navigateTo(localePath('/admin'))
   }
   catch (e) {
-    const status = (e as { statusCode?: number }).statusCode
-    error.value = status === 401 ? t('admin.invalid') : (e as { statusMessage?: string }).statusMessage || 'Error'
+    const err = e as { statusCode?: number, statusMessage?: string, data?: { data?: { retryAfter?: number } } }
+    if (err.statusCode === 429) {
+      const minutes = Math.ceil((err.data?.data?.retryAfter ?? 900) / 60)
+      error.value = t('admin.tooMany', { minutes })
+    }
+    else {
+      error.value = err.statusCode === 401 ? t('admin.invalid') : err.statusMessage || 'Error'
+    }
   }
   finally {
     loading.value = false

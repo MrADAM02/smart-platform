@@ -179,10 +179,10 @@ const faqs: (typeof t.faqs.$inferInsert)[] = [
 ]
 
 const stats: (typeof t.stats.$inferInsert)[] = [
-  { value: 10, suffix: '+', labelAr: 'سنوات خبرة', labelEn: 'Years of experience', sort: 1 },
-  { value: 250, suffix: '+', labelAr: 'مشروع منجز', labelEn: 'Projects delivered', sort: 2 },
-  { value: 3, suffix: 'M+', labelAr: 'وثيقة مؤرشفة', labelEn: 'Documents archived', sort: 3 },
-  { value: 98, suffix: '%', labelAr: 'رضا العملاء', labelEn: 'Client satisfaction', sort: 4 },
+  { icon: 'lucide:award', value: 10, suffix: '+', labelAr: 'سنوات خبرة', labelEn: 'Years of experience', sort: 1 },
+  { icon: 'lucide:briefcase-business', value: 250, suffix: '+', labelAr: 'مشروع منجز', labelEn: 'Projects delivered', sort: 2 },
+  { icon: 'lucide:files', value: 3, suffix: 'M+', labelAr: 'وثيقة مؤرشفة', labelEn: 'Documents archived', sort: 3 },
+  { icon: 'lucide:smile', value: 98, suffix: '%', labelAr: 'رضا العملاء', labelEn: 'Client satisfaction', sort: 4 },
 ]
 
 const sectors: (typeof t.sectors.$inferInsert)[] = [
