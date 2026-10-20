@@ -15,6 +15,13 @@
       "when": 1792431931745,
       "tag": "0001_polish_ratelimit_texts",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1792504400670,
+      "tag": "0002_projects_analytics",
+      "breakpoints": true
     }
   ]
 }

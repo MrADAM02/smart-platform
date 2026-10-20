@@ -1,4 +1,4 @@
-import type { Service, Product, Faq, Stat, Sector, Step } from '~~/server/db/schema'
+import type { Service, Product, Faq, Stat, Sector, Step, Project } from '~~/server/db/schema'
 
 export interface SiteData {
   services: Service[]
@@ -7,6 +7,7 @@ export interface SiteData {
   stats: Stat[]
   sectors: Sector[]
   steps: Step[]
+  projects: Project[]
   settings: Record<string, string>
 }
 

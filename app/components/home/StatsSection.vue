@@ -71,8 +71,9 @@ onMounted(() => {
           <span class="flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-700 text-white shadow-lg shadow-brand-900/40">
             <Icon :name="s.icon" class="size-6" />
           </span>
-          <p class="mt-6 text-4xl font-bold tabular-nums text-white sm:text-5xl" dir="ltr" :aria-label="`${s.value}${s.suffix}`">
-            <span class="text-start">{{ display(i, s.value) }}</span><span class="text-brand-300">{{ s.suffix }}</span>
+          <!-- LTR only on the inner span so "250+" reads correctly while the block aligns with the page direction -->
+          <p class="mt-6 text-4xl font-bold tabular-nums text-white sm:text-5xl" :aria-label="`${s.value}${s.suffix}`">
+            <span dir="ltr" class="inline-block">{{ display(i, s.value) }}<span class="text-brand-300">{{ s.suffix }}</span></span>
           </p>
           <p class="mt-2 text-sm text-slate-300 sm:text-base">{{ tr(s, 'label') }}</p>
           <!-- progress bar fills with the counter -->

@@ -19,7 +19,10 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      ],
     },
   },
 
@@ -65,11 +68,13 @@ export default defineNuxtConfig({
     '/en/admin/**': { ssr: false, headers: noStore() },
     '/api/admin/**': { headers: noStore() },
     '/api/requests': { headers: noStore() },
+    '/api/track': { headers: noStore() },
     '/api/_auth/**': { headers: noStore() },
   },
 
   sitemap: {
-    exclude: ['/admin/**', '/en/admin/**'],
+    sources: ['/api/__sitemap__/urls'],
+    exclude: ['/admin/**', '/en/admin/**', '/products/request', '/en/products/request'],
   },
 
   runtimeConfig: {

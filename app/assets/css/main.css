@@ -63,7 +63,7 @@
   @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition duration-200 disabled:opacity-60;
 }
 @utility btn-primary {
-  @apply btn bg-brand-600 text-white shadow-lg shadow-brand-600/25 hover:bg-brand-700 hover:shadow-brand-700/30;
+  @apply btn bg-brand-700 text-white shadow-lg shadow-brand-700/25 hover:bg-brand-800 hover:shadow-brand-800/30;
 }
 @utility btn-accent {
   @apply btn bg-accent-500 text-ink-900 shadow-lg shadow-accent-500/25 hover:bg-accent-400;

@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, primaryKey } from 'drizzle-orm/sqlite-core'
+import { sqliteTable, text, integer, primaryKey, index } from 'drizzle-orm/sqlite-core'
 import { sql } from 'drizzle-orm'
 
 export const services = sqliteTable('services', {
@@ -88,6 +88,38 @@ export const requests = sqliteTable('requests', {
   createdAt: text('created_at').notNull().default(sql`(CURRENT_TIMESTAMP)`),
 })
 
+export const projects = sqliteTable('projects', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  icon: text('icon').notNull().default('lucide:briefcase'),
+  titleAr: text('title_ar').notNull(),
+  titleEn: text('title_en').notNull(),
+  clientAr: text('client_ar').notNull().default(''),
+  clientEn: text('client_en').notNull().default(''),
+  sectorAr: text('sector_ar').notNull().default(''),
+  sectorEn: text('sector_en').notNull().default(''),
+  year: integer('year'),
+  summaryAr: text('summary_ar').notNull().default(''),
+  summaryEn: text('summary_en').notNull().default(''),
+  sort: integer('sort').notNull().default(0),
+  published: integer('published', { mode: 'boolean' }).notNull().default(false),
+  featured: integer('featured', { mode: 'boolean' }).notNull().default(true),
+})
+
+/** Cookie-less page view log for the built-in analytics */
+export const pageViews = sqliteTable('page_views', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  day: text('day').notNull(), // YYYY-MM-DD (UTC)
+  path: text('path').notNull(),
+  locale: text('locale').notNull().default('ar'),
+  referrer: text('referrer'), // host only, null for direct / internal
+  device: text('device', { enum: ['mobile', 'tablet', 'desktop'] }).notNull().default('desktop'),
+  country: text('country'),
+  // sha256(secret + day + ip + user agent): counts unique visitors per day without cookies;
+  // rotates daily so visitors can't be tracked across days
+  visitor: text('visitor').notNull(),
+  createdAt: text('created_at').notNull().default(sql`(CURRENT_TIMESTAMP)`),
+}, t => [index('page_views_day_idx').on(t.day)])
+
 /** Admin overrides of UI text from i18n/locales/*.json (key = dotted path, e.g. "hero.text") */
 export const pageTexts = sqliteTable('page_texts', {
   locale: text('locale', { enum: ['ar', 'en'] }).notNull(),
@@ -109,3 +141,4 @@ export type Stat = typeof stats.$inferSelect
 export type Sector = typeof sectors.$inferSelect
 export type Step = typeof steps.$inferSelect
 export type RequestRow = typeof requests.$inferSelect
+export type Project = typeof projects.$inferSelect

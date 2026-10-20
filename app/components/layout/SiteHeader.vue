@@ -20,11 +20,13 @@ onMounted(() => {
   onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 })
 
-const links = [
+const links = computed(() => [
   { to: '/products', key: 'nav.products' },
+  // Projects link appears once at least one project is published
+  ...(data.value?.projects.length ? [{ to: '/projects', key: 'nav.projects' }] : []),
   { to: '/about', key: 'nav.about' },
   { to: '/contact', key: 'nav.contact' },
-]
+])
 const quoteLink = computed(() => localePath({ path: '/contact', query: { type: 'quote' } }))
 const navItem = 'rounded-lg px-3 py-2 text-sm font-medium hover:bg-brand-50 hover:text-brand-700'
 </script>

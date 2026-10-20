@@ -1,8 +1,11 @@
 import 'dotenv/config'
 import { createDb } from '../server/db/client'
+import { count, getTableName } from 'drizzle-orm'
 import * as t from '../server/db/schema'
 
-// Original placeholder content for SMART PLATFORM — edit freely from /admin after seeding.
+// Starter content for SMART PLATFORM — edit freely from /admin after seeding.
+// By default only EMPTY tables are filled, so re-running is safe on a live database.
+// `npm run db:seed -- --reset` wipes and re-fills all content tables (requests and analytics are never touched).
 const db = createDb(process.env.TURSO_DATABASE_URL, process.env.TURSO_AUTH_TOKEN)
 
 const services: (typeof t.services.$inferInsert)[] = [
@@ -213,20 +216,71 @@ const settings: Record<string, string> = {
   sinceYear: '2016',
 }
 
-await db.delete(t.services)
-await db.delete(t.products)
-await db.delete(t.faqs)
-await db.delete(t.stats)
-await db.delete(t.sectors)
-await db.delete(t.steps)
-await db.delete(t.settings)
+// Clearly marked, unpublished examples — edit them into real projects or delete them in /admin
+const projects: (typeof t.projects.$inferInsert)[] = [
+  {
+    icon: 'lucide:archive',
+    titleAr: '[مثال] رقمنة أرشيف إدارة الموارد البشرية',
+    titleEn: '[Example] Digitizing an HR archive',
+    clientAr: 'اسم العميل',
+    clientEn: 'Client name',
+    sectorAr: 'جهة حكومية',
+    sectorEn: 'Government',
+    year: 2025,
+    summaryAr: 'مثال توضيحي: اكتب هنا وصفاً مختصراً للمشروع ونطاقه والنتائج التي تحققت.',
+    summaryEn: 'Sample entry: describe the project, its scope and the results achieved.',
+    sort: 1,
+  },
+  {
+    icon: 'lucide:barcode',
+    titleAr: '[مثال] حصر وترميز الأصول في عدة مواقع',
+    titleEn: '[Example] Multi-site fixed asset tagging',
+    clientAr: 'اسم العميل',
+    clientEn: 'Client name',
+    sectorAr: 'التعليم',
+    sectorEn: 'Education',
+    year: 2025,
+    summaryAr: 'مثال توضيحي: عدد المواقع، عدد الأصول المرمّزة، ومدة التنفيذ.',
+    summaryEn: 'Sample entry: number of sites, assets tagged and delivery time.',
+    sort: 2,
+  },
+  {
+    icon: 'lucide:building-2',
+    titleAr: '[مثال] منصة إدارة المرافق',
+    titleEn: '[Example] Facility management platform',
+    clientAr: 'اسم العميل',
+    clientEn: 'Client name',
+    sectorAr: 'القطاع الخاص',
+    sectorEn: 'Private sector',
+    year: 2026,
+    summaryAr: 'مثال توضيحي: الوحدات التي تم تفعيلها وعدد المستخدمين.',
+    summaryEn: 'Sample entry: modules enabled and number of users.',
+    sort: 3,
+  },
+]
 
-await db.insert(t.services).values(services)
-await db.insert(t.products).values(products)
-await db.insert(t.faqs).values(faqs)
-await db.insert(t.stats).values(stats)
-await db.insert(t.sectors).values(sectors)
-await db.insert(t.steps).values(steps)
-await db.insert(t.settings).values(Object.entries(settings).map(([key, value]) => ({ key, value })))
+const reset = process.argv.includes('--reset')
 
-console.log('Seed complete (requests table left untouched).')
+const content = [
+  [t.services, services],
+  [t.products, products],
+  [t.faqs, faqs],
+  [t.stats, stats],
+  [t.sectors, sectors],
+  [t.steps, steps],
+  [t.projects, projects],
+  [t.settings, Object.entries(settings).map(([key, value]) => ({ key, value }))],
+] as const
+
+for (const [table, rows] of content) {
+  const name = getTableName(table)
+  if (reset) await db.delete(table)
+  else if ((await db.select({ n: count() }).from(table))[0]!.n > 0) {
+    console.log(`- ${name}: has data, skipped`)
+    continue
+  }
+  await db.insert(table).values(rows as never)
+  console.log(`+ ${name}: ${rows.length} rows`)
+}
+
+console.log(reset ? 'Seed complete (reset).' : 'Seed complete (only empty tables were filled).')

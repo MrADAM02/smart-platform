@@ -29,6 +29,7 @@ const year = new Date().getFullYear()
         <ul class="space-y-2 text-sm">
           <li><NuxtLink :to="localePath('/about')" class="hover:text-white">{{ $t('nav.about') }}</NuxtLink></li>
           <li><NuxtLink :to="localePath('/products')" class="hover:text-white">{{ $t('nav.products') }}</NuxtLink></li>
+          <li v-if="data?.projects.length"><NuxtLink :to="localePath('/projects')" class="hover:text-white">{{ $t('nav.projects') }}</NuxtLink></li>
           <li><NuxtLink :to="localePath('/contact')" class="hover:text-white">{{ $t('nav.contact') }}</NuxtLink></li>
           <li><NuxtLink :to="localePath({ path: '/contact', query: { type: 'quote' } })" class="hover:text-white">{{ $t('nav.quote') }}</NuxtLink></li>
         </ul>

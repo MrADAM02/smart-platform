@@ -8,6 +8,7 @@ export const contentTables = {
   stats: tables.stats,
   sectors: tables.sectors,
   steps: tables.steps,
+  projects: tables.projects,
 } as const
 
 export type ContentTableName = keyof typeof contentTables

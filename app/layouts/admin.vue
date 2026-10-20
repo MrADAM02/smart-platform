@@ -8,8 +8,10 @@ watch(() => route.fullPath, () => (open.value = false))
 const nav = [
   { to: '/admin', key: 'admin.dashboard', icon: 'lucide:layout-dashboard' },
   { to: '/admin/requests', key: 'admin.requests', icon: 'lucide:inbox' },
+  { to: '/admin/analytics', key: 'admin.analytics', icon: 'lucide:chart-line' },
   { to: '/admin/content/services', key: 'admin.services', icon: 'lucide:layers' },
   { to: '/admin/content/products', key: 'admin.products', icon: 'lucide:boxes' },
+  { to: '/admin/content/projects', key: 'admin.projects', icon: 'lucide:briefcase' },
   { to: '/admin/content/faqs', key: 'admin.faqs', icon: 'lucide:circle-help' },
   { to: '/admin/content/stats', key: 'admin.stats', icon: 'lucide:chart-column' },
   { to: '/admin/content/sectors', key: 'admin.sectors', icon: 'lucide:building' },

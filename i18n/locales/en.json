@@ -13,7 +13,8 @@
     "quote": "Request a quote",
     "skip": "Skip to content",
     "menu": "Menu",
-    "allProducts": "All products"
+    "allProducts": "All products",
+    "projects": "Projects"
   },
   "hero": {
     "since": "Serving organizations since {year}",
@@ -109,6 +110,17 @@
     "features": "Key features",
     "requestTitle": "Request a product trial",
     "requestText": "Choose a product, leave your details and we will arrange a demo."
+  },
+  "projects": {
+    "eyebrow": "Our work",
+    "title": "Projects we are proud of",
+    "text": "Examples of projects we have delivered for clients across different sectors.",
+    "client": "Client",
+    "sector": "Sector",
+    "year": "Year",
+    "all": "View all projects",
+    "emptyTitle": "We are documenting our projects",
+    "emptyText": "Examples of our work will appear here soon. Contact us to hear about our experience in your sector."
   },
   "method": {
     "eyebrow": "Our methodology",
@@ -212,6 +224,28 @@
     "edited": "Edited",
     "reset": "Reset to default",
     "default": "Default",
-    "tooMany": "Too many attempts. Try again in {minutes} minutes"
+    "tooMany": "Too many attempts. Try again in {minutes} minutes",
+    "analytics": "Analytics",
+    "analyticsPrivacy": "No cookies, no IP addresses stored",
+    "lastDays": "Last {n} days",
+    "refresh": "Refresh",
+    "visitors": "Visitors",
+    "pageViews": "Page views",
+    "viewsPerVisitor": "Pages per visitor",
+    "vsPrevious": "vs previous period",
+    "traffic": "Traffic over time",
+    "noTraffic": "No visits recorded in this period yet",
+    "showTable": "Show data as a table",
+    "topPages": "Top pages",
+    "topReferrers": "Top referrers",
+    "countries": "Countries",
+    "devices": "Devices",
+    "languages": "Browsing language",
+    "device": {
+      "mobile": "Mobile",
+      "tablet": "Tablet",
+      "desktop": "Desktop"
+    },
+    "projects": "Projects"
   }
 }

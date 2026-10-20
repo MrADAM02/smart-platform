@@ -20,7 +20,7 @@ const id = useId()
     </svg>
     <span v-if="!compact" class="flex flex-col leading-none">
       <span class="text-[17px] font-bold" :class="light ? 'text-white' : 'text-ink-900'">المنصة الذكية</span>
-      <span class="mt-1 text-[10px] font-semibold tracking-[0.28em]" :class="light ? 'text-brand-300' : 'text-brand-600'">SMART PLATFORM</span>
+      <span class="mt-1 text-[10px] font-semibold tracking-[0.28em]" :class="light ? 'text-brand-300' : 'text-brand-700'">SMART PLATFORM</span>
     </span>
   </span>
 </template>
